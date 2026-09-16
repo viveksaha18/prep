@@ -96,3 +96,14 @@ where salary = (
   from employees
 );
 -- INNER QUERY RUNS FIRST
+
+
+-- Question 5 
+-- Find second highest salary
+
+
+Select DISTINCT name, salary
+from employees
+ORDER BY salary DESC 
+OFFSET 1 ROWS
+FETCH NEXT 1 ROW ONLY
