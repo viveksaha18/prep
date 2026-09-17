@@ -107,3 +107,28 @@ from employees
 ORDER BY salary DESC 
 OFFSET 1 ROWS
 FETCH NEXT 1 ROW ONLY
+
+
+
+-- Question 6 — Medium
+
+-- Using the same employees table:
+
+-- Find the employee(s) 
+-- whose salary is greater than the average salary of the entire company.
+
+Select name, salary 
+from employees
+where salary > (
+  Select AVG(salary) as average_salary
+  from employees
+)
+
+-- Question 7 — Medium
+
+-- Find the department that has the highest average salary.
+
+Select TOP 1 department, AVG(salary) as avg_salary
+from employees
+GROUP BY department
+ORDER BY AVG(salary) DESC
